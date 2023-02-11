@@ -103,7 +103,7 @@ def save_as_csv(csv_file,results):
                 
                 s = r.Session()
                 proxies = {"http":'http://proxy-bvcol.admin.ch:8080',"https":'http://proxy-bvcol.admin.ch:8080'}
-                private_api_key = 'bcc4da49-9202-4ee9-b584-b4db64d21d8c'
+                private_api_key = YOUR_API_KEY # see https://ckan.opendata.swiss/de/user/YOUR_USER_NAME
                 url = 'https://ckan.opendata.swiss/api/3/action/package_patch'
                 header = {'Authorization': private_api_key}
                 data = {
