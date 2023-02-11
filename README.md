@@ -4,10 +4,12 @@
 
 Basic python scripts for practical applications of the CKAN-API of opendata.swiss. 
 
-Examples are 
+Examples are: 
 
-_[ADD NAME OF REPO]_ : use requests.get() for basic reporting on datasets and organizations. As queries via the API of opendata.swiss do not require any authentification, anyone should be able to use this script.  
-    The script [ADD NAME OF REPO] creates python dictionaries and csv-files on 
+_[ADD NAME OF REPO]_ : use requests.get() for basic reporting on datasets and organizations. 
+As queries via the API of opendata.swiss do not require any authentification, anyone should be able to use this script.  
+
+_[ADD NAME OF REPO]_ : create a python dictionaries and csv-files on 
     - organization_slugs and political_level
     - political_level and number of packages
     - swiss federal administration departements ("ministries") and number of packages
