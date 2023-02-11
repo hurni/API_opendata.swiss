@@ -23,8 +23,7 @@ proxies = {
           'https':'http://proxy-bvcol.admin.ch:8080'
         }
 
-
-private_api_key = '0887bd41-1637-4334-a0ad-633b0f557667'
+private_api_key = YOUR_API_KEY # see https://ckan.opendata.swiss/de/user/YOUR_USER_NAME
 
 url = 'https://ckan.ogdch-abnahme.clients.liip.ch/api/3/action/resource_create'
 header = {'Authorization': private_api_key}
