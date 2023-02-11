@@ -1,6 +1,6 @@
-# API_opendata.swiss
+# <How to> API_opendata.swiss
 
-How to use the CKAN-API of opendata.swiss for some basic reporting. Script creates python dictionaries and csv-files on 
+How to use the CKAN-API of opendata.swiss for with python requests. This script can be used for some basic reporting. The Script creates python dictionaries and csv-files on 
 - organization_slugs and political_level
 - political_level and number of packages
 - swiss federal administration departements ("ministries") and number of packages
