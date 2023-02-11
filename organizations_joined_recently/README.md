@@ -1,1 +1,0 @@
-This script shows how to get the organizations that have joined opendata.swiss recently.
