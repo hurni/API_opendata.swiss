@@ -246,19 +246,18 @@ def fetch_packages(TEST, proxies):
     total_packages = s.get("https://ckan.opendata.swiss/api/3/action/package_search",
                            proxies=proxies,verify=False).json()["result"]['count']
     if TEST:
-        limit_set=1
+        limit_set=100
         nr_runs = 3
     else:
-        limit_set = 10
+        limit_set = 1000
         nr_runs = int(math.ceil(total_packages/limit_set))
     print(f'limit_set: {limit_set}, \nnr_runs_required: {nr_runs}\n')
     for i in range(nr_runs):
-        query_list = s.get(f"http://opendata.swiss/api/3/action/package_search?start={i*limit_set}",
-                            proxies=proxies, verify=False).json()["result"]["results"]
+        query_list = s.get(f"http://opendata.swiss/api/3/action/current_package_list_with_resources?offset={i*limit_set}&limit={limit_set}",
+                            proxies=proxies, verify=False).json()["result"]
         results.extend(query_list)
 
     return results
-
 
 def get_max_resources(results):
     max_resources = 0
