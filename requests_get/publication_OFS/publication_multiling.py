@@ -4,35 +4,39 @@ Created on Wed May 24 10:34:45 2023
 @author: U80838962
 
 readme: for every publication, two things must be done manually:
+
     
-    1.  The filenames for the csv must be defined.
-        for the quarterly publication by the FSO, the fsoNr must be changed according to the respective file according to KOM_PUB! 
+    a)  The filenames for the csv must be defined.
+        for the quarterly publication by the FSO, the fsoNr must be changed
+        according to the respective file according to KOM_PUB! 
         > Q:\KOM_PUB\PUB\30_Input\Diffusion\00\
         this information is also used to name the file-names. 
         
-    2. dict_slug_fr_it_de_en.csv must be up to date. The script checks this and provides a feedback.
-       This csv-file contains all slugs and their respective top-level name in french, english, italian and german.
-            
+    b) dict_slug_fr_it_de_en.csv must be up to date. The script checks this 
+       and provides a feedback.
+       This csv-file contains all slugs and their respective top-level name 
+       in french, english, italian and german.
     
-
-steps: 
-    a) input:
+What does the script do? 
+    1. input:
     - check if csv-file 'dict_slug_fr_it_de_en.csv' is up to date.
     - all further data is gathered via API-calls
     
-    b) throughput:
-    - packages per slug
-    - toplevel_names (organization) per slug
-    - federal_level per slug
+    2. throughput:
+    - get packages per slug
+    - get language versions of toplevel_names (organization) per slug
+    - get language versions of federal_levels per slug
+    - aggregate to required level
+    - query API for metadata
     
-    c) output:
-    - PACKAGES_TOP_LEVEL : packages per toplevel_name. for example, all organizations from Kanton Zurichs administrations are grouped to ZH. 
-    - PACKAGES_FED_LEVEL : packages per federal_level, e.g. federal, cantonal, commune, other 
-    - PACKAGES_DEP_LEVEL : packages per departement, eg. FDEA, DDPS, DETEC, FDHA, FSO, etc.
+    3. output:
+    - PACKAGES_TOP_LEVEL : packages per toplevel_name. for example, all 
+      organizations from Kanton Zurichs administrations are grouped to ZH. 
+    - PACKAGES_FED_LEVEL : packages per federal_level, e.g. federal, 
+      cantonal, commune, other 
+    - PACKAGES_DEP_LEVEL : packages per departement, eg. FDEA, DDPS, DETEC, 
+      FDHA, FSO, etc.
     - CSV_OPENDATASWISS : csv File of metadata on opendata.swiss
-    
-    
-
 
 """
 
