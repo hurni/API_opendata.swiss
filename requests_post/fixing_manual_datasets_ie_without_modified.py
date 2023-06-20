@@ -1,29 +1,12 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Wed Feb  1 15:39:57 2023
-
-@author: U80838962
-"""
-
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Nov 14 17:55:14 2022
-
-@author: U80838962
-"""
-# method two: 1 package at a time, compare with times below.
 
 # required modules
 
 import requests as r
-#import json
 import time
 import urllib3 
 import csv
-import pandas as pd
 import math
-#import os
-#print(os. getcwd())
 
 
 ## define variables: 
@@ -33,14 +16,9 @@ import math
 
 bund = True
 test = False
-results = list()
-output = list()
-error_list_datasets = list()
-error_list_orgs = list()
 
-df = pd.DataFrame()
 
-csv_file = "next_test_data_via_API.csv"
+csv_file = "test_data_via_API.csv"
 
 ## proxy to call API outside of BV-net
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -55,6 +33,7 @@ def is_bv_netz(bund):
     return proxies
 
 def fetch_packages(test, proxies):
+    results = []
     s = r.Session()
     total_packages = s.get("https://ckan.opendata.swiss/api/3/action/package_search",
                          proxies=proxies,
@@ -87,6 +66,10 @@ def save_as_csv(csv_file,results):
     columns = wanted_info.copy()
     columns.extend(wanted_organization_info)
 
+    error_list_datasets = []
+    error_list_orgs = []
+    output = []
+    
     with open (csv_file, 'w') as file:
         writer = csv.writer(file)
         writer.writerow(columns)
